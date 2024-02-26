@@ -1,0 +1,62 @@
+---
+- name: Backup Cisco IOS configuration
+  hosts: routers
+  gather_facts: no
+  vars:
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+
+  tasks:
+    - name: Show running-config
+      ios_command:
+        commands:
+          - show running-config
+      register: config
+      when: ansible_connection == "network_cli"
+
+    - name: Save output to /backup
+      copy:
+        content: "{{ config.stdout[0] }}"
+        dest: "~/ansible-config-backup/cisco/backup/{{ inventory_hostname }}.txt"
+      when: ansible_connection == "network_cli"
+
+    - name: run show commands(Telnet)
+      delegate_to: localhost
+      ansible.netcommon.telnet:
+        host: "{{ ansible_host }}"
+        user: "{{ ansible_user }}"
+        password: "{{ ansible_password }}"
+        login_prompt: 'sername: '
+        password_prompt: 'assword: '
+        prompts:
+          - "[>#]"
+        command:
+          - terminal length 0
+          - show running-config
+      register: config
+      when: ansible_connection == "telnet"
+
+    - name: Save Telnet output to /backup
+      delegate_to: localhost
+      copy:
+        content: "{{ config.stdout[0] }}"
+        dest: "~/ansible-config-backup/cisco/backup/{{ inventory_hostname }}.txt"
+      when: ansible_connection == "telnet"
+    
+
+    - name: Git add
+      delegate_to: localhost
+      command: git add .
+      args:
+        chdir: ~/ansible-config-backup/cisco/backup
+
+    - name: Git commit
+      delegate_to: localhost
+      command: git commit -a -m "Updated backup files"
+      args:
+        chdir: ~/ansible-config-backup/cisco/backup
+
+    - name: Git push
+      delegate_to: localhost
+      command: git push git@github.com:<account>/cisco.git
+      args:
+        chdir: ~/ansible-config-backup/cisco/backup
