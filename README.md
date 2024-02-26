@@ -29,5 +29,7 @@ $pip3 -m venv vCisco
   git init
   git
   git add .
-  git commit
+  git commit -m "initial commit"
+  git remote add origin youruser@yourserver.com:/path/to/my_project.git
+  git push origin master
   ~~~ 
