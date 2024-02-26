@@ -33,3 +33,7 @@ $pip3 -m venv vCisco
   git remote add origin youruser@yourserver.com:/path/to/my_project.git
   git push origin master
   ~~~ 
+# cisco-backup.sh is created to run cronjob with python venv
+runs every 6 hours 
+`crontab -e`
+` 0 */6 * * * sh /home/ubuntu/ansible-config-backup/cisco/cisco-backup.sh`
