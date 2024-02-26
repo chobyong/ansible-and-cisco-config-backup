@@ -1,5 +1,5 @@
-# ansible-and-cisco-config-backup
- Purpose is to backup cisco device configuration and copy to github repo using ansible
+# purpose
+ To backup cisco device configuration and copy to github repo using ansible
 ## what you will need.
   - need to have an github account
   - ssh login to github with public key `$ ssh -T git@github.com`
