@@ -1,6 +1,5 @@
 # ansible-and-cisco-config-backup
-Using Ansible to backup Cisco device
-- Purpose is to use ansible to backup cisco device configuration and seve to github repo.
+ Purpose is to backup cisco device configuration and copy to github repo using ansible
 ## what you will need.
   - need to have an github account
   - ssh login to github with public key `$ ssh -T git@github.com`
@@ -13,7 +12,7 @@ Using Ansible to backup Cisco device
 ~~~
 $pip3 -m venv vCisco
 ~~~
-- activete virtual environment
+- activate python virtual environment
   `$ source vCisco/bin/activate` to activate
 # install ansible
 * having latest one may not be compatible with installed python version and need to validate
