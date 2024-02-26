@@ -6,4 +6,17 @@ Using Ansible to backup Cisco device
   - ssh login with public key
   - ansible
   - python
-# 
+# inventory.ini file
+- ansible_connection=network_cli  is to connect to a host using "ssh"
+- ansible_connection=telnet  is to connect to a host using "Telnet"
+# python virtual environment
+~~~
+
+
+~~~
+# github and directory ready
+* backup file saved to <directoty>/backup folder
+* wil need to run few commands to begin
+  ~~~
+  $git init
+  $git 
