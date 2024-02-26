@@ -11,9 +11,11 @@ Using Ansible to backup Cisco device
 - ansible_connection=telnet  is to connect to a host using "Telnet"
 # python virtual environment
 ~~~
-
-
+$pip3 -m venv vCisco
 ~~~
+- activete virtual environment
+  ` source vCisco/bin/activate
+  
 # github and directory ready
 * backup file saved to <directoty>/backup folder
 * wil need to run few commands to begin
