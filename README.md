@@ -24,5 +24,10 @@ $pip3 -m venv vCisco
 * backup file saved to <directoty>/backup folder
 * wil need to run few commands to begin
   ~~~
-  $git init
-  $git 
+  mkdir backup
+  cd backup
+  git init
+  git
+  git add .
+  git commit
+  ~~~ 
