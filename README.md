@@ -1,10 +1,10 @@
 # purpose
  To backup cisco device configuration and copy to github repo using ansible
 ## what you will need.
-  - need to have an github account
+  - A github account
   - ssh login to github with public key `$ ssh -T git@github.com`
   - ansible
-  - python
+  - python3
 # inventory.ini file
 - ansible_connection=network_cli  is to connect to a host using "ssh"
 - ansible_connection=telnet  is to connect to a host using "Telnet"
