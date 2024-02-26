@@ -19,7 +19,7 @@ $pip3 -m venv vCisco
 * having latest one may not be compatible with installed python version and need to validate
  * use following [Ansible version release](https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html)
  * `pip3 install ansible==2.9.10`
-
+- `ansible-galaxy collection install ansible.netcommon`
 # github and directory ready
 * backup file saved to <directoty>/backup folder
 * wil need to run few commands to begin
