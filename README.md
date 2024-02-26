@@ -33,7 +33,9 @@ $pip3 -m venv vCisco
   git push origin master
   ~~~ 
 # cisco-backup.sh is created to run cronjob with python venv
-runs every 6 hours 
+runs every 6 hours wiht python venv otherwise you will run ansible playbook
+`ansible-playbook -i /home/ubuntu/ansible-config-backup/cisco/inventory.ini /home/ubuntu/ansible-config-backup/cisco/cisco-configbackup.yml
+
 ~~~
 crontab -e
 0 */6 * * * sh /home/ubuntu/ansible-config-backup/cisco/cisco-backup.sh
