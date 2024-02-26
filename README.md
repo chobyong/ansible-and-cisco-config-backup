@@ -14,7 +14,7 @@ Using Ansible to backup Cisco device
 $pip3 -m venv vCisco
 ~~~
 - activete virtual environment
-  ` source vCisco/bin/activate
+  >source vCisco/bin/activate
   
 # github and directory ready
 * backup file saved to <directoty>/backup folder
